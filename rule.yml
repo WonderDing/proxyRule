@@ -15,13 +15,26 @@ parsers: # array
           proxies:
             - 绕过大陆丨黑名单(GFWlist) # 黑名单模式，意为「只有命中规则的网络流量，才使用代理」
             - 绕过大陆丨白名单(Whitelist) # 白名单模式，意为「没有命中规则的网络流量，统统使用代理」
+        - name: PROXY
+          type: select
+          proxies:
+            - 🔰 自动选择节点 
+            - 🔰 手动选择节点
+            - 🔰 自动选择节点日本
+            - 🔰 自动选择节点美国    
+            - 🔰 自动选择节点香港                     
+            - 🔰 自动选择节点韩国
+            - 🔰 自动选择节点新加坡
+            - 🔰 自动选择节点欧洲
+            - 🔰 自动选择节点台湾
+            - 🔰 自动选择节点其他
         - name: bing服务
           type: select
           proxies:
-            - 🔰 自动选择节点
+            - 🔰 自动选择节点香港
             - DIRECT
             - REJECT
-            - 🔰 自动选择节点香港
+            - PROXY
             - 🔰 手动选择节点
             - 🔰 自动选择节点日本
             - 🔰 自动选择节点美国
@@ -33,10 +46,10 @@ parsers: # array
         - name: 🎮 Steam
           type: select
           proxies:
-            - 🔰 自动选择节点
             - 🔰 自动选择节点香港
             - DIRECT
             - REJECT
+            - PROXY
             - 🔰 手动选择节点
             - 🔰 自动选择节点日本
             - 🔰 自动选择节点美国
@@ -48,10 +61,10 @@ parsers: # array
         - name: 程序员所需
           type: select
           proxies:
-            - 🔰 自动选择节点
             - 🔰 自动选择节点香港
             - DIRECT
             - REJECT
+            - PROXY
             - 🔰 手动选择节点
             - 🔰 自动选择节点日本
             - 🔰 自动选择节点美国
@@ -63,10 +76,10 @@ parsers: # array
         - name: 🤖 ChatGpt
           type: select
           proxies:
-            - 🔰 自动选择节点
             - 🔰 自动选择节点美国
             - DIRECT
             - REJECT
+            - PROXY
             - 🔰 手动选择节点
             - 🔰 自动选择节点日本    
             - 🔰 自动选择节点香港                     
@@ -78,10 +91,10 @@ parsers: # array
         - name: 🖥 Microsoft
           type: select
           proxies:
-            - 🔰 自动选择节点
             - 🔰 自动选择节点香港
             - DIRECT
             - REJECT
+            - PROXY
             - 🔰 手动选择节点
             - 🔰 自动选择节点日本
             - 🔰 自动选择节点美国
@@ -93,10 +106,10 @@ parsers: # array
         - name: pixiv
           type: select
           proxies:
-            - 🔰 自动选择节点
             - 🔰 自动选择节点香港
             - DIRECT
             - REJECT
+            - PROXY
             - 🔰 手动选择节点
             - 🔰 自动选择节点日本
             - 🔰 自动选择节点美国
@@ -108,10 +121,10 @@ parsers: # array
         - name: 📢 Discord
           type: select
           proxies:
-            - 🔰 自动选择节点
             - 🔰 自动选择节点香港
             - DIRECT
             - REJECT
+            - PROXY
             - 🔰 手动选择节点
             - 🔰 自动选择节点日本
             - 🔰 自动选择节点美国
@@ -123,10 +136,25 @@ parsers: # array
         - name: 🍎苹果服务
           type: select
           proxies:
-            - 🔰 自动选择节点
             - 🔰 自动选择节点香港
             - DIRECT
             - REJECT
+            - PROXY
+            - 🔰 手动选择节点
+            - 🔰 自动选择节点日本
+            - 🔰 自动选择节点美国
+            - 🔰 自动选择节点韩国
+            - 🔰 自动选择节点新加坡
+            - 🔰 自动选择节点欧洲
+            - 🔰 自动选择节点台湾
+            - 🔰 自动选择节点其他
+        - name: ✈️Telegram
+          type: select
+          proxies:
+            - 🔰 自动选择节点香港
+            - DIRECT
+            - REJECT
+            - PROXY
             - 🔰 手动选择节点
             - 🔰 自动选择节点日本
             - 🔰 自动选择节点美国
@@ -138,10 +166,10 @@ parsers: # array
         - name: 💳 Paypal
           type: select
           proxies:
-            - 🔰 自动选择节点
             - 🔰 自动选择节点香港
             - DIRECT
             - REJECT
+            - PROXY
             - 🔰 手动选择节点
             - 🔰 自动选择节点日本
             - 🔰 自动选择节点美国
@@ -153,10 +181,10 @@ parsers: # array
         - name: 🎬Youtube
           type: select
           proxies:
-            - 🔰 自动选择节点
             - 🔰 自动选择节点香港
             - DIRECT
             - REJECT
+            - PROXY
             - 🔰 手动选择节点
             - 🔰 自动选择节点日本
             - 🔰 自动选择节点美国
@@ -168,10 +196,10 @@ parsers: # array
         - name: 🎬Netflix
           type: select
           proxies:
-            - 🔰 自动选择节点
             - 🔰 自动选择节点香港
             - DIRECT
             - REJECT
+            - PROXY
             - 🔰 手动选择节点
             - 🔰 自动选择节点日本
             - 🔰 自动选择节点美国
@@ -185,7 +213,7 @@ parsers: # array
           proxies:
             - DIRECT
             - REJECT
-            - 🔰 自动选择节点
+            - PROXY
             - 🔰 手动选择节点
             - 🔰 自动选择节点日本
             - 🔰 自动选择节点美国    
@@ -198,10 +226,10 @@ parsers: # array
         - name: 🎬国外媒体
           type: select
           proxies:
-            - 🔰 自动选择节点
             - 🔰 自动选择节点香港
             - DIRECT
             - REJECT
+            - PROXY
             - 🔰 手动选择节点
             - 🔰 自动选择节点日本
             - 🔰 自动选择节点美国
@@ -262,15 +290,15 @@ parsers: # array
           proxies:
             - DIRECT
             - REJECT
-            - 🔰 自动选择节点
+            - PROXY
         - name: 绕过大陆丨黑名单(GFWlist)
           type: select
           proxies:
-            - 🔰 自动选择节点
+            - DIRECT
         - name: 绕过大陆丨白名单(Whitelist)
           type: select
           proxies:
-            - 🔰 自动选择节点
+            - PROXY
   # 策略组示例
        # - name: 分组名
          # type: select       # 手动选点   
@@ -293,7 +321,7 @@ parsers: # array
         - proxy-groups.🔰 自动选择节点新加坡.proxies=[]proxyNames|^((?!5倍率).)*新加坡((?!5倍率).)*$  # 向指定策略组添加订阅中的节点名，可使用正则过滤
         - proxy-groups.🔰 自动选择节点欧洲.proxies=[]proxyNames|^(.*)(法国|爱尔兰|英国|荷兰|俄罗斯|德国)+(.*)$ # 向指定策略组添加订阅中的节点名，可使用正则过滤
         - proxy-groups.🔰 自动选择节点台湾.proxies=[]proxyNames|^((?!5倍率).)*台湾((?!5倍率).)*$  # 向指定策略组添加订阅中的节点名，可使用正则过滤
-        - proxy-groups.🔰 自动选择节点其他.proxies=[]proxyNames|^(.*)(加拿大|印度|澳大利亚|土耳其|巴西|阿根廷)+(.*)$ # 向指定策略组添加订阅中的节点名，可使用正则过滤                   
+        - proxy-groups.🔰 自动选择节点其他.proxies=[]proxyNames|^(.*)(加拿大|印度|澳大利亚|土耳其|巴西|阿根廷)+(.*)$ # 向指定策略组添加订阅中的节点名，可使用正则过滤                 
         # 一些可能用到的正则过滤节点示例，使分组更细致
         # []proxyNames|a                         # 包含a
         # []proxyNames|^(.*)(a|b)+(.*)$          # 包含a或b
@@ -796,6 +824,20 @@ parsers: # array
         - 'DOMAIN-SUFFIX,xoom.us,💳 Paypal'
         - 'DOMAIN-SUFFIX,xoomcom.com,💳 Paypal'
         - 'DOMAIN-KEYWORD,paypal,💳 Paypal'
+        - DOMAIN-SUFFIX,t.me,✈️Telegram
+        - DOMAIN-SUFFIX,tdesktop.com,✈️Telegram
+        - DOMAIN-SUFFIX,telegra.ph,✈️Telegram
+        - DOMAIN-SUFFIX,telegram.me,✈️Telegram
+        - DOMAIN-SUFFIX,telegram.org,✈️Telegram
+        - IP-CIDR,91.108.4.0/22,✈️Telegram,no-resolve
+        - IP-CIDR,91.108.8.0/22,✈️Telegram,no-resolve
+        - IP-CIDR,91.108.12.0/22,✈️Telegram,no-resolve
+        - IP-CIDR,91.108.16.0/22,✈️Telegram,no-resolve
+        - IP-CIDR,91.108.56.0/22,✈️Telegram,no-resolve
+        - IP-CIDR,149.154.160.0/20,✈️Telegram,no-resolve
+        - IP-CIDR6,2001:b28:f23d::/48,✈️Telegram,no-resolve
+        - IP-CIDR6,2001:b28:f23f::/48,✈️Telegram,no-resolve
+        - IP-CIDR6,2001:67c:4e8::/48,✈️Telegram,no-resolve
         - DOMAIN-SUFFIX,googlevideo.com,🎬Youtube
         - DOMAIN-SUFFIX,youtube.com,🎬Youtube
         - DOMAIN,youtubei.googleapis.com,🎬Youtube
@@ -825,6 +867,8 @@ parsers: # array
         - IP-CIDR,192.173.64.0/18,🎬Netflix,no-resolve
         - IP-CIDR,198.38.96.0/19,🎬Netflix,no-resolve
         - IP-CIDR,198.45.48.0/20,🎬Netflix,no-resolve
+        - DOMAIN-SUFFIX,rutracker.org,🎬国外媒体
+        - DOMAIN-SUFFIX,cloudfont.net,🎬国外媒体
         - DOMAIN-SUFFIX,deezer.com,🎬国外媒体
         - DOMAIN-SUFFIX,dzcdn.net,🎬国外媒体
         - DOMAIN-SUFFIX,kkbox.com,🎬国外媒体
@@ -987,10 +1031,10 @@ parsers: # array
         - RULE-SET,icloud,DIRECT #
         - RULE-SET,apple,DIRECT # 这三个为国内可直连地址，如果希望走代理改为PROXY
         - RULE-SET,google,DIRECT # 
-        - RULE-SET,tld-not-cn,🔯 代理模式
-        - RULE-SET,gfw,🔯 代理模式
-        - RULE-SET,greatfire,🔯 代理模式
-        - RULE-SET,telegramcidr,🔯 代理模式
+        - RULE-SET,tld-not-cn,PROXY
+        - RULE-SET,gfw,PROXY
+        - RULE-SET,greatfire,PROXY
+        - RULE-SET,telegramcidr,PROXY
         - RULE-SET,lancidr,DIRECT
         - RULE-SET,cncidr,DIRECT
         - GEOIP,,DIRECT
