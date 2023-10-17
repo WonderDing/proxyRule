@@ -1,0 +1,1112 @@
+# https://github.com/Fndroid/clash_for_windows_pkg/issues/2193#issuecomment-1589107746
+parsers: # array
+  - reg: ^.*$
+    code: |
+      module.exports.parse = (raw, { yaml }) => {
+        const rawObj = yaml.parse(raw)
+        const groups = []
+        const rules = []
+        return yaml.stringify({ ...rawObj, 'proxy-groups': groups, rules })
+      } 
+    yaml:
+      prepend-proxy-groups: # 建立策略组
+        - name: 🔯 代理模式 
+          type: select
+          proxies:
+            - 绕过大陆丨黑名单(GFWlist) # 黑名单模式，意为「只有命中规则的网络流量，才使用代理」
+            - 绕过大陆丨白名单(Whitelist) # 白名单模式，意为「没有命中规则的网络流量，统统使用代理」
+        - name: bing服务
+          type: select
+          proxies:
+            - 🔰 自动选择节点
+            - DIRECT
+            - REJECT
+            - 🔰 自动选择节点香港
+            - 🔰 手动选择节点
+            - 🔰 自动选择节点日本
+            - 🔰 自动选择节点美国
+            - 🔰 自动选择节点韩国
+            - 🔰 自动选择节点新加坡
+            - 🔰 自动选择节点欧洲
+            - 🔰 自动选择节点台湾
+            - 🔰 自动选择节点其他
+        - name: 🎮 Steam
+          type: select
+          proxies:
+            - 🔰 自动选择节点
+            - 🔰 自动选择节点香港
+            - DIRECT
+            - REJECT
+            - 🔰 手动选择节点
+            - 🔰 自动选择节点日本
+            - 🔰 自动选择节点美国
+            - 🔰 自动选择节点韩国
+            - 🔰 自动选择节点新加坡
+            - 🔰 自动选择节点欧洲
+            - 🔰 自动选择节点台湾
+            - 🔰 自动选择节点其他  
+        - name: 程序员所需
+          type: select
+          proxies:
+            - 🔰 自动选择节点
+            - 🔰 自动选择节点香港
+            - DIRECT
+            - REJECT
+            - 🔰 手动选择节点
+            - 🔰 自动选择节点日本
+            - 🔰 自动选择节点美国
+            - 🔰 自动选择节点韩国
+            - 🔰 自动选择节点新加坡
+            - 🔰 自动选择节点欧洲
+            - 🔰 自动选择节点台湾
+            - 🔰 自动选择节点其他 
+        - name: 🤖 ChatGpt
+          type: select
+          proxies:
+            - 🔰 自动选择节点
+            - 🔰 自动选择节点美国
+            - DIRECT
+            - REJECT
+            - 🔰 手动选择节点
+            - 🔰 自动选择节点日本    
+            - 🔰 自动选择节点香港                     
+            - 🔰 自动选择节点韩国
+            - 🔰 自动选择节点新加坡
+            - 🔰 自动选择节点欧洲
+            - 🔰 自动选择节点台湾
+            - 🔰 自动选择节点其他 
+        - name: 🖥 Microsoft
+          type: select
+          proxies:
+            - 🔰 自动选择节点
+            - 🔰 自动选择节点香港
+            - DIRECT
+            - REJECT
+            - 🔰 手动选择节点
+            - 🔰 自动选择节点日本
+            - 🔰 自动选择节点美国
+            - 🔰 自动选择节点韩国
+            - 🔰 自动选择节点新加坡
+            - 🔰 自动选择节点欧洲
+            - 🔰 自动选择节点台湾
+            - 🔰 自动选择节点其他   
+        - name: pixiv
+          type: select
+          proxies:
+            - 🔰 自动选择节点
+            - 🔰 自动选择节点香港
+            - DIRECT
+            - REJECT
+            - 🔰 手动选择节点
+            - 🔰 自动选择节点日本
+            - 🔰 自动选择节点美国
+            - 🔰 自动选择节点韩国
+            - 🔰 自动选择节点新加坡
+            - 🔰 自动选择节点欧洲
+            - 🔰 自动选择节点台湾
+            - 🔰 自动选择节点其他
+        - name: 📢 Discord
+          type: select
+          proxies:
+            - 🔰 自动选择节点
+            - 🔰 自动选择节点香港
+            - DIRECT
+            - REJECT
+            - 🔰 手动选择节点
+            - 🔰 自动选择节点日本
+            - 🔰 自动选择节点美国
+            - 🔰 自动选择节点韩国
+            - 🔰 自动选择节点新加坡
+            - 🔰 自动选择节点欧洲
+            - 🔰 自动选择节点台湾
+            - 🔰 自动选择节点其他 
+        - name: 🍎苹果服务
+          type: select
+          proxies:
+            - 🔰 自动选择节点
+            - 🔰 自动选择节点香港
+            - DIRECT
+            - REJECT
+            - 🔰 手动选择节点
+            - 🔰 自动选择节点日本
+            - 🔰 自动选择节点美国
+            - 🔰 自动选择节点韩国
+            - 🔰 自动选择节点新加坡
+            - 🔰 自动选择节点欧洲
+            - 🔰 自动选择节点台湾
+            - 🔰 自动选择节点其他
+        - name: 💳 Paypal
+          type: select
+          proxies:
+            - 🔰 自动选择节点
+            - 🔰 自动选择节点香港
+            - DIRECT
+            - REJECT
+            - 🔰 手动选择节点
+            - 🔰 自动选择节点日本
+            - 🔰 自动选择节点美国
+            - 🔰 自动选择节点韩国
+            - 🔰 自动选择节点新加坡
+            - 🔰 自动选择节点欧洲
+            - 🔰 自动选择节点台湾
+            - 🔰 自动选择节点其他
+        - name: 🎬Youtube
+          type: select
+          proxies:
+            - 🔰 自动选择节点
+            - 🔰 自动选择节点香港
+            - DIRECT
+            - REJECT
+            - 🔰 手动选择节点
+            - 🔰 自动选择节点日本
+            - 🔰 自动选择节点美国
+            - 🔰 自动选择节点韩国
+            - 🔰 自动选择节点新加坡
+            - 🔰 自动选择节点欧洲
+            - 🔰 自动选择节点台湾
+            - 🔰 自动选择节点其他
+        - name: 🎬Netflix
+          type: select
+          proxies:
+            - 🔰 自动选择节点
+            - 🔰 自动选择节点香港
+            - DIRECT
+            - REJECT
+            - 🔰 手动选择节点
+            - 🔰 自动选择节点日本
+            - 🔰 自动选择节点美国
+            - 🔰 自动选择节点韩国
+            - 🔰 自动选择节点新加坡
+            - 🔰 自动选择节点欧洲
+            - 🔰 自动选择节点台湾
+            - 🔰 自动选择节点其他
+        - name: 🎬哔哩哔哩
+          type: select
+          proxies:
+            - DIRECT
+            - REJECT
+            - 🔰 自动选择节点
+            - 🔰 手动选择节点
+            - 🔰 自动选择节点日本
+            - 🔰 自动选择节点美国    
+            - 🔰 自动选择节点香港
+            - 🔰 自动选择节点韩国
+            - 🔰 自动选择节点新加坡
+            - 🔰 自动选择节点欧洲
+            - 🔰 自动选择节点台湾
+            - 🔰 自动选择节点其他
+        - name: 🎬国外媒体
+          type: select
+          proxies:
+            - 🔰 自动选择节点
+            - 🔰 自动选择节点香港
+            - DIRECT
+            - REJECT
+            - 🔰 手动选择节点
+            - 🔰 自动选择节点日本
+            - 🔰 自动选择节点美国
+            - 🔰 自动选择节点韩国
+            - 🔰 自动选择节点新加坡
+            - 🔰 自动选择节点欧洲
+            - 🔰 自动选择节点台湾
+            - 🔰 自动选择节点其他            
+        - name: 🔰 手动选择节点 
+          type: select
+        - name: 🔰 自动选择节点 
+          type: url-test
+          url: http://www.google.com/generate_204
+          interval: 300
+          tolerance: 50
+        - name: 🔰 自动选择节点日本 
+          type: url-test
+          url: http://www.google.com/generate_204
+          interval: 300
+          tolerance: 50
+        - name: 🔰 自动选择节点美国 
+          type: url-test
+          url: http://www.google.com/generate_204
+          interval: 300
+          tolerance: 50
+        - name: 🔰 自动选择节点香港
+          type: url-test
+          url: http://www.google.com/generate_204
+          interval: 300
+          tolerance: 50
+        - name: 🔰 自动选择节点韩国
+          type: url-test
+          url: http://www.google.com/generate_204
+          interval: 300
+          tolerance: 50
+        - name: 🔰 自动选择节点新加坡
+          type: url-test
+          url: http://www.google.com/generate_204
+          interval: 300
+          tolerance: 50
+        - name: 🔰 自动选择节点欧洲
+          type: url-test
+          url: http://www.google.com/generate_204
+          interval: 300
+          tolerance: 50
+        - name: 🔰 自动选择节点台湾
+          type: url-test
+          url: http://www.google.com/generate_204
+          interval: 300
+          tolerance: 50
+        - name: 🔰 自动选择节点其他
+          type: url-test
+          url: http://www.google.com/generate_204
+          interval: 300
+          tolerance: 50
+        - name: 🛑 广告拦截
+          type: select
+          proxies:
+            - DIRECT
+            - REJECT
+            - 🔰 自动选择节点
+        - name: 绕过大陆丨黑名单(GFWlist)
+          type: select
+          proxies:
+            - 🔰 自动选择节点
+        - name: 绕过大陆丨白名单(Whitelist)
+          type: select
+          proxies:
+            - 🔰 自动选择节点
+  # 策略组示例
+       # - name: 分组名
+         # type: select       # 手动选点   
+               # url-test     # 自动选择延迟最低的节点
+               # fallback     # 节点故障时自动切换下一个
+               # laod-balance # 均衡使用分组内的节点
+         # url: http://www.gstatic.com/generate_204 # 测试地址 非select类型分组必要
+         # interval: 300 # 自动测试间隔时间，单位秒 非select类型分组必要
+         # tolerance: 50 # 允许的偏差，节点之间延迟差小于该值不切换 非必要
+         # proxies:  
+           # - 节点名称或其他分组套娃
+      commands:
+        - proxy-groups.🔰 自动选择节点.proxies=[]proxyNames|^((?!5倍率).)*$  # 向指定策略组添加订阅中的节点名，可使用正则过滤
+        - proxy-groups.🔰 手动选择节点.proxies=[]proxyNames|^((?!官网|暂时|购买渠道|IPV6).)*$ # 向指定策略组添加订阅中的节点名，可使用正则过滤
+        - proxy-groups.🔰 手动选择节点.proxies.0+DIRECT # 向指定分组第一个位置添加一个 DIRECT 节点名
+        - proxy-groups.🔰 自动选择节点日本.proxies=[]proxyNames|^((?!5倍率).)*日本((?!5倍率).)*$  # 向指定策略组添加订阅中的节点名，可使用正则过滤     
+        - proxy-groups.🔰 自动选择节点美国.proxies=[]proxyNames|^((?!5倍率).)*美国((?!5倍率).)*$  # 向指定策略组添加订阅中的节点名，可使用正则过滤   
+        - proxy-groups.🔰 自动选择节点香港.proxies=[]proxyNames|^((?!5倍率).)*香港((?!5倍率).)*$  # 向指定策略组添加订阅中的节点名，可使用正则过滤  
+        - proxy-groups.🔰 自动选择节点韩国.proxies=[]proxyNames|^((?!5倍率).)*韩国((?!5倍率).)*$  # 向指定策略组添加订阅中的节点名，可使用正则过滤 
+        - proxy-groups.🔰 自动选择节点新加坡.proxies=[]proxyNames|^((?!5倍率).)*新加坡((?!5倍率).)*$  # 向指定策略组添加订阅中的节点名，可使用正则过滤
+        - proxy-groups.🔰 自动选择节点欧洲.proxies=[]proxyNames|^(.*)(法国|爱尔兰|英国|荷兰|俄罗斯|德国)+(.*)$ # 向指定策略组添加订阅中的节点名，可使用正则过滤
+        - proxy-groups.🔰 自动选择节点台湾.proxies=[]proxyNames|^((?!5倍率).)*台湾((?!5倍率).)*$  # 向指定策略组添加订阅中的节点名，可使用正则过滤
+        - proxy-groups.🔰 自动选择节点其他.proxies=[]proxyNames|^(.*)(加拿大|印度|澳大利亚|土耳其|巴西|阿根廷)+(.*)$ # 向指定策略组添加订阅中的节点名，可使用正则过滤                   
+        # 一些可能用到的正则过滤节点示例，使分组更细致
+        # []proxyNames|a                         # 包含a
+        # []proxyNames|^(.*)(a|b)+(.*)$          # 包含a或b
+        # []proxyNames|^(?=.*a)(?=.*b).*$        # 包含a和b
+        # []proxyNames|^((?!b).)*a((?!b).)*$     # 包含a且不包含b
+        # []proxyNames|^((?!b|c).)*a((?!b|c).)*$ # 包含a且不包含b或c
+  # 添加规则
+      prepend-rules: # 规则由上往下遍历，如上面规则已经命中，则不再往下处理
+        - DOMAIN-SUFFIX,bing.com,bing服务
+        - 'DOMAIN-SUFFIX,jsdelivr.net,程序员所需'
+        - 'DOMAIN-SUFFIX,githubusercontent.com,程序员所需'
+        - 'DOMAIN-SUFFIX,gitlab.com,程序员所需'
+        - 'DOMAIN-SUFFIX,github.com,程序员所需'
+        - 'DOMAIN-SUFFIX,docker.com,程序员所需'
+        - 'DOMAIN-SUFFIX,debian.org,程序员所需'
+        - 'DOMAIN-SUFFIX,dribbble.com,程序员所需'
+        - 'DOMAIN-SUFFIX,ubuntu.com,程序员所需'
+        - 'DOMAIN-SUFFIX,centos.org,程序员所需'
+        - 'DOMAIN-SUFFIX,fedoraproject.org,程序员所需'
+        - 'DOMAIN-SUFFIX,almalinux.org,程序员所需'
+        - 'DOMAIN-SUFFIX,stackoverflow.com,程序员所需'
+        - 'DOMAIN-SUFFIX,reddit.com,程序员所需'
+        - 'DOMAIN-SUFFIX,regexr.com,程序员所需'
+        - 'DOMAIN-SUFFIX,v2ex.com,程序员所需'
+        - 'DOMAIN-SUFFIX,ideone.com,程序员所需'
+        - 'DOMAIN-SUFFIX,jsfiddle.net,程序员所需'
+        - 'DOMAIN-SUFFIX,codepen.io,程序员所需'
+        - 'DOMAIN-SUFFIX,geeksforgeeks.org,程序员所需'
+        - 'DOMAIN-SUFFIX,coursera.org,程序员所需'
+        - 'DOMAIN-SUFFIX,topcoder.com,程序员所需'
+        - DOMAIN-SUFFIX,pixiv.net,pixiv
+        - 'DOMAIN,f3b7q2p3.ssl.hwcdn.net,🎮 Steam'
+        - 'DOMAIN,steammobile.akamaized.net,🎮 Steam'
+        - 'DOMAIN,steampipe-kr.akamaized.net,🎮 Steam'
+        - 'DOMAIN,steampipe-partner.akamaized.net,🎮 Steam'
+        - 'DOMAIN-SUFFIX,cdn-ali.content.steamchina.com,🎮 Steam'
+        - 'DOMAIN-SUFFIX,cdn-qc.content.steamchina.com,🎮 Steam'
+        - 'DOMAIN-SUFFIX,cdn-ws.content.steamchina.com,🎮 Steam'
+        - 'DOMAIN-SUFFIX,csgo.wmsj.cn,🎮 Steam'
+        - 'DOMAIN-SUFFIX,dl.steam.clngaa.com,🎮 Steam'
+        - 'DOMAIN-SUFFIX,dl.steam.ksyna.com,🎮 Steam'
+        - 'DOMAIN-SUFFIX,dota2.wmsj.cn,🎮 Steam'
+        - 'DOMAIN-SUFFIX,edge.steam-dns.top.comcast.net,🎮 Steam'
+        - 'DOMAIN-SUFFIX,fanatical.com,🎮 Steam'
+        - 'DOMAIN-SUFFIX,humblebundle.com,🎮 Steam'
+        - 'DOMAIN-SUFFIX,playartifact.com,🎮 Steam'
+        - 'DOMAIN-SUFFIX,s.team,🎮 Steam'
+        - 'DOMAIN-SUFFIX,st.dl.bscstorage.net,🎮 Steam'
+        - 'DOMAIN-SUFFIX,st.dl.eccdnx.com,🎮 Steam'
+        - 'DOMAIN-SUFFIX,st.dl.pinyuncloud.com,🎮 Steam'
+        - 'DOMAIN-SUFFIX,steam-api.com,🎮 Steam'
+        - 'DOMAIN-SUFFIX,steam-chat.com,🎮 Steam'
+        - 'DOMAIN-SUFFIX,steam.apac.qtlglb.com,🎮 Steam'
+        - 'DOMAIN-SUFFIX,steam.cdn.on.net,🎮 Steam'
+        - 'DOMAIN-SUFFIX,steam.cdn.orcon.net.nz,🎮 Steam'
+        - 'DOMAIN-SUFFIX,steam.cdn.slingshot.co.nz,🎮 Steam'
+        - 'DOMAIN-SUFFIX,steam.cdn.webra.ru,🎮 Steam'
+        - 'DOMAIN-SUFFIX,steam.eca.qtlglb.com,🎮 Steam'
+        - 'DOMAIN-SUFFIX,steam.naeu.qtlglb.com,🎮 Steam'
+        - 'DOMAIN-SUFFIX,steam.ru.qtlglb.com,🎮 Steam'
+        - 'DOMAIN-SUFFIX,steambroadcast.akamaized.net,🎮 Steam'
+        - 'DOMAIN-SUFFIX,steamcdn-a.akamaihd.net,🎮 Steam'
+        - 'DOMAIN-SUFFIX,steamcommunity-a.akamaihd.net,🎮 Steam'
+        - 'DOMAIN-SUFFIX,steamcommunity.com,🎮 Steam'
+        - 'DOMAIN-SUFFIX,steamcontent.tnkjmec.com,🎮 Steam'
+        - 'DOMAIN-SUFFIX,steamdeck.com,🎮 Steam'
+        - 'DOMAIN-SUFFIX,steamgames.com,🎮 Steam'
+        - 'DOMAIN-SUFFIX,steampipe.akamaized.net,🎮 Steam'
+        - 'DOMAIN-SUFFIX,steampowered.com,🎮 Steam'
+        - 'DOMAIN-SUFFIX,steamstat.us,🎮 Steam'
+        - 'DOMAIN-SUFFIX,steamstatic.com,🎮 Steam'
+        - 'DOMAIN-SUFFIX,steamstatic.com.8686c.com,🎮 Steam'
+        - 'DOMAIN-SUFFIX,steamstore-a.akamaihd.net,🎮 Steam'
+        - 'DOMAIN-SUFFIX,steamunlocked.net,🎮 Steam'
+        - 'DOMAIN-SUFFIX,steamusercontent-a.akamaihd.net,🎮 Steam'
+        - 'DOMAIN-SUFFIX,steamuserimages-a.akamaihd.net,🎮 Steam'
+        - 'DOMAIN-SUFFIX,steamvideo-a.akamaihd.net,🎮 Steam'
+        - 'DOMAIN-SUFFIX,underlords.com,🎮 Steam'
+        - 'DOMAIN-SUFFIX,valvesoftware.com,🎮 Steam'
+        - 'DOMAIN-SUFFIX,wmsjsteam.com,🎮 Steam'
+        - 'DOMAIN-KEYWORD,steambroadcast,🎮 Steam'
+        - 'DOMAIN-KEYWORD,steamstore,🎮 Steam'
+        - 'DOMAIN-KEYWORD,steamuserimages,🎮 Steam'
+        - DOMAIN-SUFFIX,microsoft.com,🖥 Microsoft
+        - 'DOMAIN-SUFFIX,1drv.com,🖥 Microsoft'
+        - 'DOMAIN-SUFFIX,aadrm.com,🖥 Microsoft'
+        - 'DOMAIN-SUFFIX,acompli.com,🖥 Microsoft'
+        - 'DOMAIN-SUFFIX,acompli.net,🖥 Microsoft'
+        - 'DOMAIN-SUFFIX,aka.ms,🖥 Microsoft'
+        - 'DOMAIN-SUFFIX,akadns.net,🖥 Microsoft'
+        - 'DOMAIN-SUFFIX,aspnetcdn.com,🖥 Microsoft'
+        - 'DOMAIN-SUFFIX,assets-yammer.com,🖥 Microsoft'
+        - 'DOMAIN-SUFFIX,azure.cn,🖥 Microsoft'
+        - 'DOMAIN-SUFFIX,azure.com,🖥 Microsoft'
+        - 'DOMAIN-SUFFIX,azure.net,🖥 Microsoft'
+        - 'DOMAIN-SUFFIX,azureedge.net,🖥 Microsoft'
+        - 'DOMAIN-SUFFIX,azurerms.com,🖥 Microsoft'
+        - 'DOMAIN-SUFFIX,bing.com,🖥 Microsoft'
+        - 'DOMAIN-SUFFIX,bing.com.cn,🖥 Microsoft'
+        - 'DOMAIN-SUFFIX,bingads.com,🖥 Microsoft'
+        - 'DOMAIN-SUFFIX,bingagencyawards.com,🖥 Microsoft'
+        - 'DOMAIN-SUFFIX,bingapistatistics.com,🖥 Microsoft'
+        - 'DOMAIN-SUFFIX,bingsandbox.com,🖥 Microsoft'
+        - 'DOMAIN-SUFFIX,bingvisualsearch.com,🖥 Microsoft'
+        - 'DOMAIN-SUFFIX,bingworld.com,🖥 Microsoft'
+        - 'DOMAIN-SUFFIX,bluehatnights.com,🖥 Microsoft'
+        - 'DOMAIN-SUFFIX,dictate.ms,🖥 Microsoft'
+        - 'DOMAIN-SUFFIX,flipwithsurface.com,🖥 Microsoft'
+        - 'DOMAIN-SUFFIX,masalladeloslimites.com,🖥 Microsoft'
+        - 'DOMAIN-SUFFIX,microsoft-give.com,🖥 Microsoft'
+        - 'DOMAIN-SUFFIX,microsoftcloudsummit.com,🖥 Microsoft'
+        - 'DOMAIN-SUFFIX,microsoftdiplomados.com,🖥 Microsoft'
+        - 'DOMAIN-SUFFIX,microsoftlatamholiday.com,🖥 Microsoft'
+        - 'DOMAIN-SUFFIX,microsoftmxfilantropia.com,🖥 Microsoft'
+        - 'DOMAIN-SUFFIX,microsoftpartnersolutions.com,🖥 Microsoft'
+        - 'DOMAIN-SUFFIX,msunlimitedcloudsummit.com,🖥 Microsoft'
+        - 'DOMAIN-SUFFIX,office365love.com,🖥 Microsoft'
+        - 'DOMAIN-SUFFIX,office365tw.com,🖥 Microsoft'
+        - 'DOMAIN-SUFFIX,renovacionoffice.com,🖥 Microsoft'
+        - 'DOMAIN-SUFFIX,sprinklesapp.com,🖥 Microsoft'
+        - 'DOMAIN-SUFFIX,cn.bing.com,🖥 Microsoft'
+        - 'DOMAIN-SUFFIX,cn.bing.net,🖥 Microsoft'
+        - 'DOMAIN-SUFFIX,ditu.live.com,🖥 Microsoft'
+        - 'DOMAIN-SUFFIX,full:bj1.api.bing.com,🖥 Microsoft'
+        - 'DOMAIN-SUFFIX,full:emoi-cncdn.bing.com,🖥 Microsoft'
+        - 'DOMAIN-SUFFIX,bing.net,🖥 Microsoft'
+        - 'DOMAIN-SUFFIX,cloudapp.net,🖥 Microsoft'
+        - 'DOMAIN-SUFFIX,cloudappsecurity.com,🖥 Microsoft'
+        - 'DOMAIN-SUFFIX,docs.com,🖥 Microsoft'
+        - 'DOMAIN-SUFFIX,edgesuite.net,🖥 Microsoft'
+        - 'DOMAIN-SUFFIX,fabric.io,🖥 Microsoft'
+        - 'DOMAIN-SUFFIX,gfx.ms,🖥 Microsoft'
+        - 'DOMAIN-SUFFIX,hotmail.com,🖥 Microsoft'
+        - 'DOMAIN-SUFFIX,live.com,🖥 Microsoft'
+        - 'DOMAIN-SUFFIX,live.net,🖥 Microsoft'
+        - 'DOMAIN-SUFFIX,livefilestore.com,🖥 Microsoft'
+        - 'DOMAIN-SUFFIX,lync.com,🖥 Microsoft'
+        - 'DOMAIN-SUFFIX,mesh.com,🖥 Microsoft'
+        - 'DOMAIN-SUFFIX,microsoft-tst.com,🖥 Microsoft'
+        - 'DOMAIN-SUFFIX,microsoft.com,🖥 Microsoft'
+        - 'DOMAIN-SUFFIX,microsoftonline.com,🖥 Microsoft'
+        - 'DOMAIN-SUFFIX,msappproxy.net,🖥 Microsoft'
+        - 'DOMAIN-SUFFIX,msauth.net,🖥 Microsoft'
+        - 'DOMAIN-SUFFIX,msauthimages.net,🖥 Microsoft'
+        - 'DOMAIN-SUFFIX,msecnd.net,🖥 Microsoft'
+        - 'DOMAIN-SUFFIX,msedge.net,🖥 Microsoft'
+        - 'DOMAIN-SUFFIX,msft.net,🖥 Microsoft'
+        - 'DOMAIN-SUFFIX,msftauth.net,🖥 Microsoft'
+        - 'DOMAIN-SUFFIX,msftauthimages.net,🖥 Microsoft'
+        - 'DOMAIN-SUFFIX,msftconnecttest.com,🖥 Microsoft'
+        - 'DOMAIN-SUFFIX,msftidentity.com,🖥 Microsoft'
+        - 'DOMAIN-SUFFIX,msidentity.com,🖥 Microsoft'
+        - 'DOMAIN-SUFFIX,msn.com,🖥 Microsoft'
+        - 'DOMAIN-SUFFIX,msocdn.com,🖥 Microsoft'
+        - 'DOMAIN-SUFFIX,msocsp.com,🖥 Microsoft'
+        - 'DOMAIN-SUFFIX,mstea.ms,🖥 Microsoft'
+        - 'DOMAIN-SUFFIX,o365weve.com,🖥 Microsoft'
+        - 'DOMAIN-SUFFIX,oaspapps.com,🖥 Microsoft'
+        - 'DOMAIN-SUFFIX,office.com,🖥 Microsoft'
+        - 'DOMAIN-SUFFIX,office.net,🖥 Microsoft'
+        - 'DOMAIN-SUFFIX,office365.com,🖥 Microsoft'
+        - 'DOMAIN-SUFFIX,officeppe.net,🖥 Microsoft'
+        - 'DOMAIN-SUFFIX,omniroot.com,🖥 Microsoft'
+        - 'DOMAIN-SUFFIX,onedrive.com,🖥 Microsoft'
+        - 'DOMAIN-SUFFIX,onenote.com,🖥 Microsoft'
+        - 'DOMAIN-SUFFIX,onenote.net,🖥 Microsoft'
+        - 'DOMAIN-SUFFIX,onestore.ms,🖥 Microsoft'
+        - 'DOMAIN-SUFFIX,onmicrosoft.com,🖥 Microsoft'
+        - 'DOMAIN-SUFFIX,outlook.com,🖥 Microsoft'
+        - 'DOMAIN-SUFFIX,outlookgroups.ms,🖥 Microsoft'
+        - 'DOMAIN-SUFFIX,outlookmobile.com,🖥 Microsoft'
+        - 'DOMAIN-SUFFIX,phonefactor.net,🖥 Microsoft'
+        - 'DOMAIN-SUFFIX,public-trust.com,🖥 Microsoft'
+        - 'DOMAIN-SUFFIX,s-microsoft.com,🖥 Microsoft'
+        - 'DOMAIN-SUFFIX,sfbassets.com,🖥 Microsoft'
+        - 'DOMAIN-SUFFIX,sfx.ms,🖥 Microsoft'
+        - 'DOMAIN-SUFFIX,sharepoint.com,🖥 Microsoft'
+        - 'DOMAIN-SUFFIX,sharepointonline.com,🖥 Microsoft'
+        - 'DOMAIN-SUFFIX,skype.com,🖥 Microsoft'
+        - 'DOMAIN-SUFFIX,skypeassets.com,🖥 Microsoft'
+        - 'DOMAIN-SUFFIX,skypeforbusiness.com,🖥 Microsoft'
+        - 'DOMAIN-SUFFIX,spoprod-a.akamaihd.net,🖥 Microsoft'
+        - 'DOMAIN-SUFFIX,staffhub.ms,🖥 Microsoft'
+        - 'DOMAIN-SUFFIX,svc.ms,🖥 Microsoft'
+        - 'DOMAIN-SUFFIX,sway-cdn.com,🖥 Microsoft'
+        - 'DOMAIN-SUFFIX,sway-extensions.com,🖥 Microsoft'
+        - 'DOMAIN-SUFFIX,sway.com,🖥 Microsoft'
+        - 'DOMAIN-SUFFIX,trafficmanager.net,🖥 Microsoft'
+        - 'DOMAIN-SUFFIX,uservoice.com,🖥 Microsoft'
+        - 'DOMAIN-SUFFIX,virtualearth.net,🖥 Microsoft'
+        - 'DOMAIN-SUFFIX,visualstudio.com,🖥 Microsoft'
+        - 'DOMAIN-SUFFIX,windows-ppe.net,🖥 Microsoft'
+        - 'DOMAIN-SUFFIX,windows.com,🖥 Microsoft'
+        - 'DOMAIN-SUFFIX,windows.net,🖥 Microsoft'
+        - 'DOMAIN-SUFFIX,windowsazure.com,🖥 Microsoft'
+        - 'DOMAIN-SUFFIX,windowsupdate.com,🖥 Microsoft'
+        - 'DOMAIN-SUFFIX,wunderlist.com,🖥 Microsoft'
+        - 'DOMAIN-SUFFIX,xbox.cn,🖥 Microsoft'
+        - 'DOMAIN-SUFFIX,xbox.com,🖥 Microsoft'
+        - 'DOMAIN-SUFFIX,xboxlive.cn,🖥 Microsoft'
+        - 'DOMAIN-SUFFIX,xboxlive.com,🖥 Microsoft'
+        - 'DOMAIN-SUFFIX,yammer.com,🖥 Microsoft'
+        - 'DOMAIN-SUFFIX,yammerusercontent.com,🖥 Microsoft'
+        - 'DOMAIN-KEYWORD,1drv,🖥 Microsoft'
+        - 'DOMAIN-KEYWORD,microsoft,🖥 Microsoft'
+        - 'DOMAIN-KEYWORD,onedrive,🖥 Microsoft'
+        - 'DOMAIN-KEYWORD,skydrive,🖥 Microsoft'
+        - 'DOMAIN-SUFFIX,openai.com,🤖 ChatGpt'
+        - 'DOMAIN-SUFFIX,ai.com,🤖 ChatGpt'
+        - 'DOMAIN-SUFFIX,openaiapi-site.azureedge.net,🤖 ChatGpt'
+        - 'DOMAIN-SUFFIX,openaicom.imgix.net,🤖 ChatGpt'
+        - 'DOMAIN-SUFFIX,openaicomproductionae4b.blob.core.windows.net,🤖 ChatGpt'
+        - 'DOMAIN-SUFFIX,openaicom-api-bdcpf8c6d2e9atf6.z01.azurefd.net,🤖 ChatGpt'
+        - 'DOMAIN-SUFFIX,openaicomproductionae4b.blob.core.windows.net,🤖 ChatGpt'
+        - 'DOMAIN-SUFFIX,sentry.io,🤖 ChatGpt'
+        - DOMAIN-SUFFIX,aaplimg.com,🍎苹果服务
+        - DOMAIN-SUFFIX,apple.co,🍎苹果服务
+        - DOMAIN-SUFFIX,apple.com,🍎苹果服务
+        - DOMAIN-SUFFIX,apple-cloudkit.com,🍎苹果服务
+        - DOMAIN-SUFFIX,appstore.com,🍎苹果服务
+        - DOMAIN-SUFFIX,cdn-apple.com,🍎苹果服务
+        - DOMAIN-SUFFIX,crashlytics.com,🍎苹果服务
+        - DOMAIN-SUFFIX,icloud.com,🍎苹果服务
+        - DOMAIN-SUFFIX,icloud-content.com,🍎苹果服务
+        - DOMAIN-SUFFIX,me.com,🍎苹果服务
+        - DOMAIN-SUFFIX,mzstatic.com,🍎苹果服务
+        - DOMAIN,www-cdn.icloud.com.akadns.net,🍎苹果服务
+        - 'DOMAIN-SUFFIX,airhorn.solutions,📢 Discord'
+        - 'DOMAIN-SUFFIX,airhornbot.com,📢 Discord'
+        - 'DOMAIN-SUFFIX,bigbeans.solutions,📢 Discord'
+        - 'DOMAIN-SUFFIX,dis.gd,📢 Discord'
+        - 'DOMAIN-SUFFIX,discord-activities.com,📢 Discord'
+        - 'DOMAIN-SUFFIX,discord.co,📢 Discord'
+        - 'DOMAIN-SUFFIX,discord.com,📢 Discord'
+        - 'DOMAIN-SUFFIX,discord.design,📢 Discord'
+        - 'DOMAIN-SUFFIX,discord.dev,📢 Discord'
+        - 'DOMAIN-SUFFIX,discord.gg,📢 Discord'
+        - 'DOMAIN-SUFFIX,discord.gift,📢 Discord'
+        - 'DOMAIN-SUFFIX,discord.gifts,📢 Discord'
+        - 'DOMAIN-SUFFIX,discord.media,📢 Discord'
+        - 'DOMAIN-SUFFIX,discord.new,📢 Discord'
+        - 'DOMAIN-SUFFIX,discord.store,📢 Discord'
+        - 'DOMAIN-SUFFIX,discord.tools,📢 Discord'
+        - 'DOMAIN-SUFFIX,discordactivities.com,📢 Discord'
+        - 'DOMAIN-SUFFIX,discordapp.com,📢 Discord'
+        - 'DOMAIN-SUFFIX,discordapp.io,📢 Discord'
+        - 'DOMAIN-SUFFIX,discordapp.net,📢 Discord'
+        - 'DOMAIN-SUFFIX,discordapp.page.link,📢 Discord'
+        - 'DOMAIN-SUFFIX,discordcdn.com,📢 Discord'
+        - 'DOMAIN-SUFFIX,discordmerch.com,📢 Discord'
+        - 'DOMAIN-SUFFIX,discordpartygames.com,📢 Discord'
+        - 'DOMAIN-SUFFIX,discordsays.com,📢 Discord'
+        - 'DOMAIN-SUFFIX,discordstatus.com,📢 Discord'
+        - 'DOMAIN-SUFFIX,hammerandchisel.ssl.zendesk.com,📢 Discord'
+        - 'DOMAIN-SUFFIX,watchanimeattheoffice.com,📢 Discord'
+        - 'DOMAIN-SUFFIX,account-paypal.info,💳 Paypal'
+        - 'DOMAIN-SUFFIX,account-paypal.net,💳 Paypal'
+        - 'DOMAIN-SUFFIX,account-paypal.org,💳 Paypal'
+        - 'DOMAIN-SUFFIX,accountpaypal.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,accountpaypal.net,💳 Paypal'
+        - 'DOMAIN-SUFFIX,accountpaypal.org,💳 Paypal'
+        - 'DOMAIN-SUFFIX,anfutong.cn,💳 Paypal'
+        - 'DOMAIN-SUFFIX,anfutong.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,anfutong.com.cn,💳 Paypal'
+        - 'DOMAIN-SUFFIX,beibao.cn,💳 Paypal'
+        - 'DOMAIN-SUFFIX,beibao.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,beibao.com.cn,💳 Paypal'
+        - 'DOMAIN-SUFFIX,bill-safe.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,billmelater.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,billmelater.info,💳 Paypal'
+        - 'DOMAIN-SUFFIX,billmelater.net,💳 Paypal'
+        - 'DOMAIN-SUFFIX,bml.info,💳 Paypal'
+        - 'DOMAIN-SUFFIX,braintreegateway.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,braintreegateway.tv,💳 Paypal'
+        - 'DOMAIN-SUFFIX,braintreepayments.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,braintreepayments.info,💳 Paypal'
+        - 'DOMAIN-SUFFIX,braintreepayments.org,💳 Paypal'
+        - 'DOMAIN-SUFFIX,braintreepayments.tv,💳 Paypal'
+        - 'DOMAIN-SUFFIX,braintreepaymentsolutions.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,braintreeps.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,briantreepayments.net,💳 Paypal'
+        - 'DOMAIN-SUFFIX,briantreepayments.tv,💳 Paypal'
+        - 'DOMAIN-SUFFIX,buyfast-paysmart.net,💳 Paypal'
+        - 'DOMAIN-SUFFIX,card.io,💳 Paypal'
+        - 'DOMAIN-SUFFIX,cash2.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,cashify.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,cashify.net,💳 Paypal'
+        - 'DOMAIN-SUFFIX,devtools-paypal.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,experiencebillmelater.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,filipino-music.net,💳 Paypal'
+        - 'DOMAIN-SUFFIX,fundpaypal.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,getbraintree.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,gmoney.org,💳 Paypal'
+        - 'DOMAIN-SUFFIX,i-o-u.info,💳 Paypal'
+        - 'DOMAIN-SUFFIX,krakenjs.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,loanbuilder.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,login-paypal.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,login-paypal.info,💳 Paypal'
+        - 'DOMAIN-SUFFIX,mywaytopay.info,💳 Paypal'
+        - 'DOMAIN-SUFFIX,mywaytopay.net,💳 Paypal'
+        - 'DOMAIN-SUFFIX,pa9pal.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paaypal.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paily.net,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paily.org,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paipal.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,pavpal.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paydiant.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paylike.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypa1.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypa1.org,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypaal.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypal-activate.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypal-activate.info,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypal-activate.org,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypal-apac.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypal-apps.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypal-biz.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypal-brandcentral.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypal-business.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypal-business.net,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypal-business.org,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypal-cardcash.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypal-cash.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypal-center.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypal-center.info,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypal-center.net,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypal-center.org,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypal-communication.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypal-communications.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypal-communications.net,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypal-community.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypal-community.net,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypal-comunidad.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypal-corp.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypal-database.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypal-database.us,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypal-donations.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypal-dynamic.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypal-engineering.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypal-europe.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypal-excelinvoicing.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypal-exchanges.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypal-forward.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypal-galactic.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypal-gift.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypal-gifts.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypal-gpplus.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypal-here.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypal-hrsystem.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypal-innovationlab.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypal-integration.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypal-japan.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypal-knowledge.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypal-labs.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypal-latam.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypal-learning.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypal-login.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypal-login.info,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypal-login.org,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypal-login.us,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypal-luxury.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypal-mainstreet.net,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypal-marketing.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypal-media.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypal-merchantloyalty.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypal-mktg.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypal-mobilemoney.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypal-network.org,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypal-notice.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypal-notify.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypal-online.info,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypal-online.net,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypal-online.org,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypal-optimizer.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypal-pages.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypal-photocard.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypal-plaza.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypal-portal.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypal-prepagata.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypal-prepagata.net,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypal-prepaid.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypal-profile.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypal-proserv.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypal-qrshopping.org,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypal-recargacelular.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypal-redeem.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypal-referral.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypal-retail.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypal-scoop.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypal-search.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypal-secure.net,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypal-secure.org,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypal-security.net,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypal-security.org,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypal-service.org,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypal-signin.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypal-signin.us,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypal-special.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypal-specialoffers.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypal-sptam.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypal-status.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypal-support.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypal-survey.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypal-survey.org,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypal-team.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypal-viewpoints.net,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypal.ca,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypal.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypal.com.cn,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypal.com.hk,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypal.com.sg,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypal.hk,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypal.info,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypal.jp,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypal.me,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypal.net.cn,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypal.org.cn,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypal.so,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypal.us,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypalbeacon.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypalbenefits.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypalbrasil.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypalcommunity.cn,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypalcommunity.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypalcommunity.net,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypalcommunity.org,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypalcorp.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypalcredit.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypalcreditcard.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypalgivingfund.org,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypalhere.cn,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypalhere.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypalhere.com.cn,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypalhere.info,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypalhere.net,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypalhere.org,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypalhere.tv,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypali.net,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypalinc.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypalindia.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypalinsuranceservices.org,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypall.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypallabs.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypalme.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypalnet.net,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypalnet.org,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypalnetwork.info,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypalnetwork.net,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypalnetwork.org,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypalobjects.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypalonline.net,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypalonline.org,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypalprepagata.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypalprepagata.net,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypalservice.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypalshopping.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypalshopping.net,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypalsurvey.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypalx.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,paypaly.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,payppal.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,payypal.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,pdncommunity.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,pp-soc.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,ppaypal.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,pppds.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,pypl.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,pypl.info,💳 Paypal'
+        - 'DOMAIN-SUFFIX,pypl.net,💳 Paypal'
+        - 'DOMAIN-SUFFIX,pypl.tv,💳 Paypal'
+        - 'DOMAIN-SUFFIX,s-xoom.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,secure-paypal.info,💳 Paypal'
+        - 'DOMAIN-SUFFIX,securepaypal.info,💳 Paypal'
+        - 'DOMAIN-SUFFIX,simility.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,sslpaypal.org,💳 Paypal'
+        - 'DOMAIN-SUFFIX,swiftbank.info,💳 Paypal'
+        - 'DOMAIN-SUFFIX,swiftbank.us,💳 Paypal'
+        - 'DOMAIN-SUFFIX,swiftcapital.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,swiftfinancial.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,swiftfinancial.info,💳 Paypal'
+        - 'DOMAIN-SUFFIX,swiftfinancial.net,💳 Paypal'
+        - 'DOMAIN-SUFFIX,thepaypalshop.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,theshoppingexpresslane.net,💳 Paypal'
+        - 'DOMAIN-SUFFIX,venmo-touch.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,venmo.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,venmo.info,💳 Paypal'
+        - 'DOMAIN-SUFFIX,venmo.net,💳 Paypal'
+        - 'DOMAIN-SUFFIX,venmo.org,💳 Paypal'
+        - 'DOMAIN-SUFFIX,venmo.s3.amazonaws.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,webmoneyinfo.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,wiremoneytoirelandwithxoomeasierandcheaper.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,www-paypal.info,💳 Paypal'
+        - 'DOMAIN-SUFFIX,www-paypal.us,💳 Paypal'
+        - 'DOMAIN-SUFFIX,wwwxoom.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,xn--bnq297cix3a.cn,💳 Paypal'
+        - 'DOMAIN-SUFFIX,xoom-experience.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,xoom.com,💳 Paypal'
+        - 'DOMAIN-SUFFIX,xoom.io,💳 Paypal'
+        - 'DOMAIN-SUFFIX,xoom.net.cn,💳 Paypal'
+        - 'DOMAIN-SUFFIX,xoom.us,💳 Paypal'
+        - 'DOMAIN-SUFFIX,xoomcom.com,💳 Paypal'
+        - 'DOMAIN-KEYWORD,paypal,💳 Paypal'
+        - DOMAIN-SUFFIX,googlevideo.com,🎬Youtube
+        - DOMAIN-SUFFIX,youtube.com,🎬Youtube
+        - DOMAIN,youtubei.googleapis.com,🎬Youtube
+        - DOMAIN-SUFFIX,netflix.com,🎬Netflix
+        - DOMAIN-SUFFIX,netflix.net,🎬Netflix
+        - DOMAIN-SUFFIX,nflxext.com,🎬Netflix
+        - DOMAIN-SUFFIX,nflximg.com,🎬Netflix
+        - DOMAIN-SUFFIX,nflximg.net,🎬Netflix
+        - DOMAIN-SUFFIX,nflxso.net,🎬Netflix
+        - DOMAIN-SUFFIX,nflxvideo.net,🎬Netflix
+        - DOMAIN-SUFFIX,netflixdnstest0.com,🎬Netflix
+        - DOMAIN-SUFFIX,netflixdnstest1.com,🎬Netflix
+        - DOMAIN-SUFFIX,netflixdnstest2.com,🎬Netflix
+        - DOMAIN-SUFFIX,netflixdnstest3.com,🎬Netflix
+        - DOMAIN-SUFFIX,netflixdnstest4.com,🎬Netflix
+        - DOMAIN-SUFFIX,netflixdnstest5.com,🎬Netflix
+        - DOMAIN-SUFFIX,netflixdnstest6.com,🎬Netflix
+        - DOMAIN-SUFFIX,netflixdnstest7.com,🎬Netflix
+        - DOMAIN-SUFFIX,netflixdnstest8.com,🎬Netflix
+        - DOMAIN-SUFFIX,netflixdnstest9.com,🎬Netflix
+        - IP-CIDR,23.246.0.0/18,🎬Netflix,no-resolve
+        - IP-CIDR,37.77.184.0/21,🎬Netflix,no-resolve
+        - IP-CIDR,45.57.0.0/17,🎬Netflix,no-resolve
+        - IP-CIDR,64.120.128.0/17,🎬Netflix,no-resolve
+        - IP-CIDR,66.197.128.0/17,🎬Netflix,no-resolve
+        - IP-CIDR,108.175.32.0/20,🎬Netflix,no-resolve
+        - IP-CIDR,192.173.64.0/18,🎬Netflix,no-resolve
+        - IP-CIDR,198.38.96.0/19,🎬Netflix,no-resolve
+        - IP-CIDR,198.45.48.0/20,🎬Netflix,no-resolve
+        - DOMAIN-SUFFIX,deezer.com,🎬国外媒体
+        - DOMAIN-SUFFIX,dzcdn.net,🎬国外媒体
+        - DOMAIN-SUFFIX,kkbox.com,🎬国外媒体
+        - DOMAIN-SUFFIX,kkbox.com.tw,🎬国外媒体
+        - DOMAIN-SUFFIX,kfs.io,🎬国外媒体
+        - DOMAIN-SUFFIX,joox.com,🎬国外媒体
+        - DOMAIN-SUFFIX,pandora.com,🎬国外媒体
+        - DOMAIN-SUFFIX,p-cdn.us,🎬国外媒体
+        - DOMAIN-SUFFIX,sndcdn.com,🎬国外媒体
+        - DOMAIN-SUFFIX,soundcloud.com,🎬国外媒体
+        - DOMAIN-SUFFIX,pscdn.co,🎬国外媒体
+        - DOMAIN-SUFFIX,scdn.co,🎬国外媒体
+        -  DOMAIN-SUFFIX,spotify.com,🎬国外媒体
+        - DOMAIN-SUFFIX,spoti.fi,🎬国外媒体
+        - DOMAIN-KEYWORD,spotify.com,🎬国外媒体
+        - DOMAIN-KEYWORD,-spotify-com,🎬国外媒体
+        - DOMAIN-SUFFIX,tidal.com,🎬国外媒体
+        - DOMAIN-SUFFIX,c4assets.com,🎬国外媒体
+        - DOMAIN-SUFFIX,channel4.com,🎬国外媒体
+        - DOMAIN-SUFFIX,abema.io,🎬国外媒体
+        - DOMAIN-SUFFIX,ameba.jp,🎬国外媒体
+        - DOMAIN-SUFFIX,abema.tv,🎬国外媒体
+        - DOMAIN-SUFFIX,hayabusa.io,🎬国外媒体
+        - DOMAIN,abematv.akamaized.net,🎬国外媒体
+        - DOMAIN,ds-linear-abematv.akamaized.net,🎬国外媒体
+        - DOMAIN,ds-vod-abematv.akamaized.net,🎬国外媒体
+        - DOMAIN,linear-abematv.akamaized.net,🎬国外媒体
+        - DOMAIN-SUFFIX,aiv-cdn.net,🎬国外媒体
+        - DOMAIN-SUFFIX,aiv-delivery.net,🎬国外媒体
+        - DOMAIN-SUFFIX,amazonvideo.com,🎬国外媒体
+        - DOMAIN-SUFFIX,primevideo.com,🎬国外媒体
+        - DOMAIN,avodmp4s3ww-a.akamaihd.net,🎬国外媒体
+        - DOMAIN,d25xi40x97liuc.cloudfront.net,🎬国外媒体
+        - DOMAIN,dmqdd6hw24ucf.cloudfront.net,🎬国外媒体
+        - DOMAIN,d22qjgkvxw22r6.cloudfront.net,🎬国外媒体
+        - DOMAIN,d1v5ir2lpwr8os.cloudfront.net,🎬国外媒体
+        - DOMAIN-KEYWORD,avoddashs,🎬国外媒体
+        - DOMAIN-SUFFIX,bahamut.com.tw,🎬国外媒体
+        - DOMAIN-SUFFIX,gamer.com.tw,🎬国外媒体
+        - DOMAIN,gamer-cds.cdn.hinet.net,🎬国外媒体
+        - DOMAIN,gamer2-cds.cdn.hinet.net,🎬国外媒体
+        - DOMAIN-SUFFIX,bbc.co.uk,🎬国外媒体
+        - DOMAIN-SUFFIX,bbci.co.uk,🎬国外媒体
+        - DOMAIN-KEYWORD,bbcfmt,🎬国外媒体
+        - DOMAIN-KEYWORD,uk-live,🎬国外媒体
+        - DOMAIN-SUFFIX,dazn.com,🎬国外媒体
+        - DOMAIN-SUFFIX,dazn-api.com,🎬国外媒体
+        - DOMAIN,d151l6v8er5bdm.cloudfront.net,🎬国外媒体
+        - DOMAIN-KEYWORD,voddazn,🎬国外媒体
+        - DOMAIN-SUFFIX,bamgrid.com,🎬国外媒体
+        - DOMAIN-SUFFIX,disney-plus.net,🎬国外媒体
+        - DOMAIN-SUFFIX,disneyplus.com,🎬国外媒体
+        - DOMAIN-SUFFIX,dssott.com,🎬国外媒体
+        - DOMAIN,cdn.registerdisney.go.com,🎬国外媒体
+        - DOMAIN-SUFFIX,encoretvb.com,🎬国外媒体
+        - DOMAIN,edge.api.brightcove.com,🎬国外媒体
+        - DOMAIN,bcbolt446c5271-a.akamaihd.net,🎬国外媒体
+        - DOMAIN-SUFFIX,fox.com,🎬国外媒体
+        - DOMAIN-SUFFIX,foxdcg.com,🎬国外媒体
+        - DOMAIN-SUFFIX,theplatform.com,🎬国外媒体
+        - DOMAIN-SUFFIX,uplynk.com,🎬国外媒体
+        - DOMAIN-SUFFIX,hbo.com,🎬国外媒体
+        - DOMAIN-SUFFIX,hbogo.com,🎬国外媒体
+        - DOMAIN-SUFFIX,hbonow.com,🎬国外媒体
+        - DOMAIN-SUFFIX,hbogoasia.com,🎬国外媒体
+        - DOMAIN-SUFFIX,hbogoasia.hk,🎬国外媒体
+        - DOMAIN,bcbolthboa-a.akamaihd.net,🎬国外媒体
+        - DOMAIN,players.brightcove.net,🎬国外媒体
+        - DOMAIN,s3-ap-southeast-1.amazonaws.com,🎬国外媒体
+        - DOMAIN,dai3fd1oh325y.cloudfront.net,🎬国外媒体
+        - DOMAIN,44wilhpljf.execute-api.ap-southeast-1.amazonaws.com,🎬国外媒体
+        - DOMAIN,hboasia1-i.akamaihd.net,🎬国外媒体
+        - DOMAIN,hboasia2-i.akamaihd.net,🎬国外媒体
+        - DOMAIN,hboasia3-i.akamaihd.net,🎬国外媒体
+        - DOMAIN,hboasia4-i.akamaihd.net,🎬国外媒体
+        - DOMAIN,hboasia5-i.akamaihd.net,🎬国外媒体
+        - DOMAIN,cf-images.ap-southeast-1.prod.boltdns.net,🎬国外媒体
+        - DOMAIN-SUFFIX,5itv.tv,🎬国外媒体
+        - DOMAIN-SUFFIX,ocnttv.com,🎬国外媒体
+        - DOMAIN-SUFFIX,hulu.com,🎬国外媒体
+        - DOMAIN-SUFFIX,huluim.com,🎬国外媒体
+        - DOMAIN-SUFFIX,hulustream.com,🎬国外媒体
+        - DOMAIN-SUFFIX,happyon.jp,🎬国外媒体
+        - DOMAIN-SUFFIX,hulu.jp,🎬国外媒体
+        - DOMAIN-SUFFIX,itv.com,🎬国外媒体
+        - DOMAIN-SUFFIX,itvstatic.com,🎬国外媒体
+        - DOMAIN,itvpnpmobile-a.akamaihd.net,🎬国外媒体
+        - DOMAIN-SUFFIX,kktv.com.tw,🎬国外媒体
+        - DOMAIN-SUFFIX,kktv.me,🎬国外媒体
+        - DOMAIN,kktv-theater.kk.stream,🎬国外媒体
+        - DOMAIN-SUFFIX,linetv.tw,🎬国外媒体
+        - DOMAIN,d3c7rimkq79yfu.cloudfront.net,🎬国外媒体
+        - DOMAIN-SUFFIX,litv.tv,🎬国外媒体
+        - DOMAIN,litvfreemobile-hichannel.cdn.hinet.net,🎬国外媒体
+        - DOMAIN-SUFFIX,channel5.com,🎬国外媒体
+        - DOMAIN-SUFFIX,my5.tv,🎬国外媒体
+        - DOMAIN,d349g9zuie06uo.cloudfront.net,🎬国外媒体
+        - DOMAIN-SUFFIX,mytvsuper.com,🎬国外媒体
+        - DOMAIN-SUFFIX,tvb.com,🎬国外媒体
+        - DOMAIN-SUFFIX,netflix.com,🎬国外媒体
+        - DOMAIN-SUFFIX,netflix.net,🎬国外媒体
+        - DOMAIN-SUFFIX,nflxext.com,🎬国外媒体
+        - DOMAIN-SUFFIX,nflximg.com,🎬国外媒体
+        - DOMAIN-SUFFIX,nflximg.net,🎬国外媒体
+        - DOMAIN-SUFFIX,nflxso.net,🎬国外媒体
+        - DOMAIN-SUFFIX,nflxvideo.net,🎬国外媒体
+        - DOMAIN-SUFFIX,netflixdnstest0.com,🎬国外媒体
+        - DOMAIN-SUFFIX,netflixdnstest1.com,🎬国外媒体
+        - DOMAIN-SUFFIX,netflixdnstest2.com,🎬国外媒体
+        - DOMAIN-SUFFIX,netflixdnstest3.com,🎬国外媒体
+        - DOMAIN-SUFFIX,netflixdnstest4.com,🎬国外媒体
+        - DOMAIN-SUFFIX,netflixdnstest5.com,🎬国外媒体
+        - DOMAIN-SUFFIX,netflixdnstest6.com,🎬国外媒体
+        - DOMAIN-SUFFIX,netflixdnstest7.com,🎬国外媒体
+        - DOMAIN-SUFFIX,netflixdnstest8.com,🎬国外媒体
+        - DOMAIN-SUFFIX,netflixdnstest9.com,🎬国外媒体
+        - IP-CIDR,23.246.0.0/18,🎬国外媒体,no-resolve
+        - IP-CIDR,37.77.184.0/21,🎬国外媒体,no-resolve
+        - IP-CIDR,45.57.0.0/17,🎬国外媒体,no-resolve
+        - IP-CIDR,64.120.128.0/17,🎬国外媒体,no-resolve
+        - IP-CIDR,66.197.128.0/17,🎬国外媒体,no-resolve
+        - IP-CIDR,108.175.32.0/20,🎬国外媒体,no-resolve
+        - IP-CIDR,192.173.64.0/18,🎬国外媒体,no-resolve
+        - IP-CIDR,198.38.96.0/19,🎬国外媒体,no-resolve
+        - IP-CIDR,198.45.48.0/20,🎬国外媒体,no-resolve
+        - DOMAIN-SUFFIX,dmc.nico,🎬国外媒体
+        - DOMAIN-SUFFIX,nicovideo.jp,🎬国外媒体
+        - DOMAIN-SUFFIX,nimg.jp,🎬国外媒体
+        - DOMAIN-SUFFIX,socdm.com,🎬国外媒体
+        - DOMAIN-SUFFIX,pbs.org,🎬国外媒体
+        - DOMAIN-SUFFIX,phncdn.com,🎬国外媒体
+        - DOMAIN-SUFFIX,pornhub.com,🎬国外媒体
+        - DOMAIN-SUFFIX,pornhubpremium.com,🎬国外媒体
+        - DOMAIN-SUFFIX,skyking.com.tw,🎬国外媒体
+        - DOMAIN,hamifans.emome.net,🎬国外媒体
+        - DOMAIN-SUFFIX,twitch.tv,🎬国外媒体
+        - DOMAIN-SUFFIX,twitchcdn.net,🎬国外媒体
+        - DOMAIN-SUFFIX,ttvnw.net,🎬国外媒体
+        - DOMAIN-SUFFIX,jtvnw.net,🎬国外媒体
+        - DOMAIN-SUFFIX,viu.com,🎬国外媒体
+        - DOMAIN-SUFFIX,viu.tv,🎬国外媒体
+        - DOMAIN,api.viu.now.com,🎬国外媒体
+        - DOMAIN,d1k2us671qcoau.cloudfront.net,🎬国外媒体
+        - DOMAIN,d2anahhhmp1ffz.cloudfront.net,🎬国外媒体
+        - DOMAIN,dfp6rglgjqszk.cloudfront.net,🎬国外媒体
+        - DOMAIN-SUFFIX,googlevideo.com,🎬国外媒体
+        - DOMAIN-SUFFIX,youtube.com,🎬国外媒体
+        - DOMAIN,youtubei.googleapis.com,🎬国外媒体
+        - DOMAIN-SUFFIX,biliapi.com,🎬哔哩哔哩
+        - DOMAIN-SUFFIX,biliapi.net,🎬哔哩哔哩
+        - DOMAIN-SUFFIX,bilibili.com,🎬哔哩哔哩
+        - DOMAIN-SUFFIX,bilibili.tv,🎬哔哩哔哩
+        - DOMAIN-SUFFIX,bilivideo.com,🎬哔哩哔哩
+        - DOMAIN-SUFFIX,verykuai.com,DIRECT           
+        - RULE-SET,applications,DIRECT
+        - DOMAIN,clash.razord.top,DIRECT
+        - DOMAIN,yacd.haishan.me,DIRECT
+        - RULE-SET,private,DIRECT
+        - RULE-SET,reject,🛑 广告拦截
+        - RULE-SET,icloud,DIRECT #
+        - RULE-SET,apple,DIRECT # 这三个为国内可直连地址，如果希望走代理改为PROXY
+        - RULE-SET,google,DIRECT # 
+        - RULE-SET,tld-not-cn,🔯 代理模式
+        - RULE-SET,gfw,🔯 代理模式
+        - RULE-SET,greatfire,🔯 代理模式
+        - RULE-SET,telegramcidr,🔯 代理模式
+        - RULE-SET,lancidr,DIRECT
+        - RULE-SET,cncidr,DIRECT
+        - GEOIP,,DIRECT
+        - GEOIP,CN,DIRECT
+        - RULE-SET,direct,DIRECT
+        - RULE-SET,proxy,🔯 代理模式
+        - MATCH,🔯 代理模式 # 规则之外的
+  # 添加规则集
+      mix-rule-providers: 
+        reject: # 广告域名列表
+          type: http
+          behavior: domain
+          url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/reject.txt"
+          path: ./providers/rule/reject.yaml
+          interval: 86400
+        icloud: # iCloud 域名列表
+          type: http
+          behavior: domain
+          url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/icloud.txt"
+          path: ./providers/rule/icloud.yaml
+          interval: 86400
+        apple: # Apple 在中国大陆可直连的域名列表
+          type: http
+          behavior: domain
+          url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/apple.txt"
+          path: ./providers/rule/apple.yaml
+          interval: 86400
+        google: # Google 在中国大陆可直连的域名列表
+          type: http
+          behavior: domain
+          url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/google.txt"
+          path: ./providers/rule/google.yaml
+          interval: 86400
+        proxy: # 代理域名列表
+          type: http
+          behavior: domain
+          url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/proxy.txt"
+          path: ./providers/rule/proxy.yaml
+          interval: 86400
+        direct: # 直连域名列表
+          type: http
+          behavior: domain
+          url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/direct.txt"
+          path: ./providers/rule/direct.yaml
+          interval: 86400
+        private: # 私有网络专用域名列表
+          type: http
+          behavior: domain
+          url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/private.txt"
+          path: ./providers/rule/private.yaml
+          interval: 86400
+        gfw: # GFWList 域名列表
+          type: http
+          behavior: domain
+          url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/gfw.txt"
+          path: ./providers/rule/gfw.yaml
+          interval: 86400
+        greatfire: # GreatFire 域名列表
+          type: http
+          behavior: domain
+          url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/greatfire.txt"
+          path: ./providers/rule/greatfire.yaml
+          interval: 86400
+        tld-not-cn: # 非中国大陆使用的顶级域名列表
+          type: http
+          behavior: domain
+          url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/tld-not-cn.txt"
+          path: ./providers/rule/tld-not-cn.yaml
+          interval: 86400
+        telegramcidr: # Telegram 使用的 IP 地址列表
+          type: http
+          behavior: ipcidr
+          url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/telegramcidr.txt"
+          path: ./providers/rule/telegramcidr.yaml
+          interval: 86400
+        cncidr: # 中国大陆 IP 地址列表
+          type: http
+          behavior: ipcidr
+          url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/cncidr.txt"
+          path: ./providers/rule/cncidr.yaml
+          interval: 86400
+        lancidr: # 局域网 IP 及保留 IP 地址列表
+          type: http
+          behavior: ipcidr
+          url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/lancidr.txt"
+          path: ./providers/rule/lancidr.yaml
+          interval: 86400
+        applications: # 需要直连的常见软件列表
+          type: http
+          behavior: classical
+          url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/applications.txt"
+          path: ./providers/rule/applications.yaml
+          interval: 86400
+  # https://github.com/Dreamacro/clash/issues/1385#issuecomment-1583996210
+  # 预加载rule-providers
+  - reg: ^.*$
+    code: |
+      module.exports.parse = async (raw, { axios, yaml, console, homeDir }) => {
+        const fs = require('fs');
+        const rawObj = yaml.parse(raw);
+        const providers = rawObj['rule-providers'];
+        for (let provider in providers) {
+          const obj = providers[provider];
+          if (obj.type === 'file') {
+              continue;
+          }
+          const ret = await axios({
+              method: 'get',
+              url: obj.url,
+          });
+          const fmt = obj.format === undefined || obj.format === 'yaml' ? 'yaml' : 'txt';
+          const filePath = homeDir + '\\providers\\rule\\' + provider + '.' + fmt;
+          fs.writeFileSync(filePath, ret.data);
+          obj.type = 'file';
+          obj.path = filePath;
+          delete obj.url;
+        }
+        return yaml.stringify(rawObj);
+      };
